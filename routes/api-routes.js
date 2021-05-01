@@ -1,15 +1,22 @@
-// const express = require('express');
+// Import express router
 const router = require("express").Router();
-// const mongoose = require("mongoose");
-// mongoose.connect('localhost:27017/test');
-// const Schema = mongoose.Schema;
 
-const db = require("../models/workout");  // Import workout model
-
-// module.exports = (app) => {
+// Import workout model
+const db = require("../models/workout");
 
 // Request for getting all workout
 router.get("/api/workouts", (req, res) => {
+	db.find()
+		.then((dbWorkout) => {
+			res.json(dbWorkout);
+		})
+		.catch((err) => {
+			res.json(err);
+		});
+});
+
+//select workout range
+router.get("/api/workouts/range", (req, res) => {
 	db.find()
 		.then((dbWorkout) => {
 			res.json(dbWorkout);
@@ -25,36 +32,21 @@ router.post("/api/workouts", ({ body }, res) => {
 		.then((dbWorkout) => {
 			res.json(dbWorkout);
 		})
-      .catch(err => {
-        res.status(400).json(err);
-      });
-  });
-
-//add workout
-router.put("api/workouts/:id", (req, res) => {
-  db.findByIdAndUpdate(params.id,
-    {
-      $push: { exercise:body }
-    }
-  ) 
-  .then((dbWorkout) => {
-    res.json(dbWorkout);
-  })
-  .catch(err => {
-    res.status(400).json(err);
-  });
+		.catch((err) => {
+			res.json(err);
+		});
 });
 
-//select workout range
-router.get("/api/workouts/range", (req, res) => {
-	db.find()
+//add workout
+router.put("/api/workouts/:id", ({ body, params }, res) => {
+	db.findByIdAndUpdate(params.id, { $push: { exercises: body } })
 		.then((dbWorkout) => {
 			res.json(dbWorkout);
 		})
-		.catch(err => {
-      res.status(400).json(err);
-    });
+		.catch((err) => {
+			res.json(err);
+		});
 });
-  
-// }
+
+// Export API routes
 module.exports = router;

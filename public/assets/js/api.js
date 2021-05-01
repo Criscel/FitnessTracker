@@ -10,6 +10,8 @@ const API = {
 
     return json[json.length - 1];
   },
+
+  //add to existing workout
   async addExercise(data) {
     const id = location.search.split("=")[1];
 
@@ -23,6 +25,8 @@ const API = {
 
     return json;
   },
+
+  //create new workout
   async createWorkout(data = {}) {
     const res = await fetch("/api/workouts", {
       method: "POST",
@@ -35,6 +39,7 @@ const API = {
     return json;
   },
 
+  //gwt workout range
   async getWorkoutsInRange() {
     const res = await fetch(`/api/workouts/range`);
     const json = await res.json();
