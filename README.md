@@ -23,4 +23,3 @@ To get this application working, download the package and intall the dependencie
 *[Mongodb / Mongo Atlas](https://www.mongodb.com/cloud/atlas/)<br>
 *[Webpack.js.org](https://webpack.js.org/guides/progressive-web-application/)<br>
 *[Express NPM Package](https://www.npmjs.com/package/express)<br>
-*https://randomuser.me/
