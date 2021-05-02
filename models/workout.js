@@ -6,41 +6,37 @@ const Schema = mongoose.Schema;
 
 // Create new workout schema
 const WorkoutSchema = new Schema({
-    date: {
+    day: {
         type: Date,
-        default: Date.now
+        default: Date.now()
     },
     exercises: [
         {
             name: {
                 type: String,
                 trim: true,
-                required: "Enter name of Exercise: "
+                required: "Please Enter Exercise name"
             },
             type: {
                 type: String,
                 trim: true,
-                required: "Enter type of Exercise: "
+                required: "Please Enter Exercise type"
             },
-            weight: {
-                type: Number,
-                required: "Enter weight value: "
-            },
-            sets: {
-                type: Number,
-                required: "Enter sets value: "
-            },
-            reps: {
-                type: Number,
-                required: "Enter repetition value: "
+            distance: {
+                type: Number
             },
             duration: {
                 type: Number,
-                required: "Enter Duration: "
+                required: "Please Enter Exercise duration"
             },
-            distance: {
-                type: Number,
-                required: "Enter Distance: "
+            weight: {
+                type: Number
+            },
+            sets: {
+                type: Number
+            },
+            reps: {
+                type: Number
             }
         }
     ]

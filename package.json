@@ -10,7 +10,7 @@
     "seed": "node seeders/seed.js"
   },
   "author": "Criscel Agdeppa",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "express": "^4.17.1",
     "mongoose": "^5.12.2",
